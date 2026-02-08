@@ -8,6 +8,10 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+// ✅ Health check endpoint (keeps Render happy)
+app.get("/", (req, res) => {
+  res.send("OK");
+});
 
 // Initialize OpenAI client
 const client = new OpenAI({
@@ -36,3 +40,4 @@ app.post("/api/chat", async (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
+
