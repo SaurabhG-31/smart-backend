@@ -27,7 +27,7 @@ app.post("/api/chat", async (req, res) => {
       input: userMessage
     });
 
-    const botMessage = response.output[0].content[0].text;
+    const botMessage = response.output_text;
 
     res.json({ reply: botMessage });
 
@@ -40,5 +40,6 @@ app.post("/api/chat", async (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
+
 
 
